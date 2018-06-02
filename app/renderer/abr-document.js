@@ -37,7 +37,7 @@ function AbrDocument () {
     // Listener for commands sent by the menu
     this.commandsToTrigger = [];
     ipcClient.listenToCommands(function (sender, command, parameters) {
-        that.execCommand(command, parameters);
+        that.execCommand(command, parameters); 
     });
 
     // Load and set theme
@@ -45,7 +45,7 @@ function AbrDocument () {
         that.loadTheme.call(that, themeName);
     });
 
-    // Init CodeMirror fist because most of methods rely on it
+    // Init CodeMirror first because most of methods rely on it
     cmInit(function (cm) {
         that.cm = cm;
 
@@ -832,6 +832,10 @@ AbrDocument.prototype = {
     // About
     about: function () {
         this.dialogs.about();
+    },
+
+    showSettings: function() {
+        this.ipcClient.trigger("editConfigFile");
     }
 };
 

@@ -4,9 +4,15 @@
 *   Licensed under GNU-GPLv3 <http://www.gnu.org/licenses/gpl.html>
 */
 
+//Electron
+var BrowserWindow = require("electron").BrowserWindow,
+    path = require('path')
+    url = require('url')
+    fs = require('fs')
+
+//Custom
 var AbrMenu = require.main.require("./abr-menu.js"),
     AbrWindow = require.main.require("./abr-window.js"),
-    BrowserWindow = require("electron").BrowserWindow,
     commands = require.main.require("./commands-main.js"),
     createConfig = require.main.require("./config.js"),
     Dialogs = require.main.require("./dialogs.js"),
@@ -138,6 +144,26 @@ AbrApplication.prototype = {
 
     showMenu: function () {
         this.menu.attach();
+    },
+
+    editConfigFile: function() {
+        console.log("Setting should be shown");
+        this.showSettings();
+    },
+
+    showSettings: function() {
+        // Create the browser window.
+        var SettingsWindow = new BrowserWindow({
+            title:'Settings',
+            width:500,
+            height: 500,
+        });
+    
+        SettingsWindow.loadURL(url.format({
+            pathname: path.join(__dirname, 'renderer/settings.html'),
+            protocol: 'file:',
+            slashes: true
+        }));
     }
 };
 

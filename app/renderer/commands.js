@@ -10,6 +10,7 @@ var remote = require("electron").remote,
     md2html = require.main.require("./md2html.js"),
     shell = require('electron').shell;
 
+
 var commands = {
 
     /* File */
@@ -154,9 +155,10 @@ var commands = {
         abrDoc.reloadTheme();
     },
 
-    editConfigFile: function(win, abrDoc, cm) {
-        var dirPath = constants.path.userConfig;
-        shell.openItem(dirPath);
+    editConfigFile: function(win, abrDoc, cm) { //Open Settings
+        //var dirPath = constants.path.userConfig;
+        //shell.openItem(dirPath);
+        abrDoc.showSettings();
     },
 
     /* Format */
