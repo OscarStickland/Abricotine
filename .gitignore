@@ -35,3 +35,9 @@ bower_components
 
 # Built packages
 dist
+
+#Visual Studio Code
+.vscode
+
+#NPM Package Managment
+package-lock.json
