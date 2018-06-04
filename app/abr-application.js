@@ -22,6 +22,9 @@ var AbrMenu = require.main.require("./abr-menu.js"),
     menuTemplate = require.main.require("./menu-window.json"),
     parsePath = require("parse-filepath");
 
+//Settings Window
+var SettingsWindow = null;
+
 function AbrApplication (osxOpenFilePaths) {
     // Config
     this.config = createConfig();
@@ -153,10 +156,10 @@ AbrApplication.prototype = {
 
     showSettings: function() {
         // Create the browser window.
-        var SettingsWindow = new BrowserWindow({
+        SettingsWindow = new BrowserWindow({
             title:'Settings',
-            width:500,
-            height: 500,
+            width:600,
+            height: 800,
         });
     
         SettingsWindow.loadURL(url.format({
@@ -164,6 +167,10 @@ AbrApplication.prototype = {
             protocol: 'file:',
             slashes: true
         }));
+
+        SettingsWindow.setMenu(null);
+
+        //SettingsWindow.openDevTools();
     }
 };
 

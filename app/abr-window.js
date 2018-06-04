@@ -110,6 +110,7 @@ AbrWindow.prototype = {
             // Destroy the window
             abrApp.windows[abrWin.id] = null;
             win = null;
+            console.log("Application Closing")
         });
 
         // Load window

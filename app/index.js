@@ -11,6 +11,8 @@ var app = require("electron").app,
     creator = require.main.require("./creator.js"),
     dialog = require("electron").dialog;
 
+
+
 var abrApp = null,
     osxOpenFilePaths = [];
 
@@ -39,6 +41,8 @@ app.on("open-file", function(event, path) {
         osxOpenFilePaths.push(path);
     }
 });
+
+
 
 // Quit app when all windows are closed
 app.on("window-all-closed", function() {
@@ -75,3 +79,6 @@ app.on("ready", function () {
             abrApp = new AbrApplication(osxOpenFilePaths);
         });
 });
+
+
+
