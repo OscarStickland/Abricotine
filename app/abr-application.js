@@ -150,7 +150,6 @@ AbrApplication.prototype = {
     },
 
     editConfigFile: function() {
-        console.log("Setting should be shown");
         this.showSettings();
     },
 
@@ -170,7 +169,7 @@ AbrApplication.prototype = {
 
         SettingsWindow.setMenu(null);
 
-        //SettingsWindow.openDevTools();
+        SettingsWindow.openDevTools();
     }
 };
 

@@ -3,15 +3,16 @@
         <title>Settings</title>
         <!--Materialize-->
         <link rel="stylesheet" href="../less/materialize.min.css">
-        <!--jQuery--> 
+        <!--Javascipt-->
+        <script src="settings.js"></script>
 
         <style>
             .window-main {
               padding-left:10px;
-              padding-right:10px;  
+              padding-right:10px;
             }
         </style>
-        
+
     </head>
     <body>
         <!--Heading (Could be change to fit more with the style of the main window-->
@@ -24,8 +25,8 @@
         <div class="window-main">
             <form>
                 <h4>Language</h4>
-                <!--Language-->        
-                <select name="language" class="browser-default">
+                <!--Language-->
+                <select id="language" class="browser-default">
                     <option value="en_US">English</option>
                     <option value="de_DE">German</option>
                     <option value="es_??">Spanish</option>
@@ -37,56 +38,56 @@
                 <h4>Auto Preview</h4>
                 <p>
                     <label>
-                        <input id="indeterminate-checkbox" type="checkbox" />
+                        <input id="indeterminate-checkbox" class="photo-checkbox" type="checkbox" />
                         <span>Photos</span>
                     </label>
                 </p>
                 <p>
                     <label>
-                        <input id="indeterminate-checkbox" type="checkbox" />
+                        <input id="indeterminate-checkbox" class="todolist-checkbox" type="checkbox" />
                         <span>Todo List</span>
                     </label>
                 </p>
                 <p>
                     <label>
-                        <input id="indeterminate-checkbox" type="checkbox" />
+                        <input id="indeterminate-checkbox" class="iframe-checkbox" type="checkbox" />
                         <span>iFrame</span>
                     </label>
                 </p>
                 <p>
                     <label>
-                        <input id="indeterminate-checkbox" type="checkbox" />
+                        <input id="indeterminate-checkbox" class="anchor-checkbox" type="checkbox" />
                         <span>Anchor</span>
                     </label>
                 </p>
                 <p>
                     <label>
-                        <input id="indeterminate-checkbox" type="checkbox" />
+                        <input id="indeterminate-checkbox" class="math-checkbox" type="checkbox" />
                         <span>Math</span>
                     </label>
                 </p>
-    
+
                 <hr>
                 <h4>Font Size (in Pixels)</h4>
-                <select name="font-size" class="browser-default">
-                    <option value="8">8px</option>
-                    <option value="9">9px</option>
-                    <option value="10">10px</option>
-                    <option value="11">11px</option>
-                    <option value="12">12px</option>
-                    <option value="14">14px</option>
-                    <option value="16">16px</option>
-                    <option value="18">18px</option>
-                    <option value="20">20px</option>
-                    <option value="25">25px</option>
-                    <option value="30">30px</option>
-                    <option value="40">40px</option>
-                    <option value="50">50px</option>
-                    <option value="60">60px</option>
+                <select id="font-size" class="browser-default">
+                    <option value="8px">8px</option>
+                    <option value="9px">9px</option>
+                    <option value="10px">10px</option>
+                    <option value="11px">11px</option>
+                    <option value="12px">12px</option>
+                    <option value="14px">14px</option>
+                    <option value="16px">16px</option>
+                    <option value="18px">18px</option>
+                    <option value="20px">20px</option>
+                    <option value="25px">25px</option>
+                    <option value="30px">30px</option>
+                    <option value="40px">40px</option>
+                    <option value="50px">50px</option>
+                    <option value="60px">60px</option>
                 </select>
                 <hr>
                 <h4>Themes</h4>
-                <select name="themes" class="browser-default">
+                <select id="themes" class="browser-default">
                     <option value="default">Default</option>
                     <option value="default-dark">Default Dark</option>
                 </select>
@@ -95,4 +96,5 @@
             </form>
         </div>
     </body>
+
 </html>
