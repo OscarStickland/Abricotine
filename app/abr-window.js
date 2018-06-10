@@ -11,6 +11,7 @@ var AbrMenu = require.main.require("./abr-menu.js"),
     createConfig = require.main.require("./config.js"),
     menuTemplate = require.main.require("./menu-window.json"),
     windowStateKeeper = require('electron-window-state');
+    app = require('electron').app
 
 function alreadyOpen (abrApp, path) {
     if (!path || !abrApp) {
@@ -110,7 +111,7 @@ AbrWindow.prototype = {
             // Destroy the window
             abrApp.windows[abrWin.id] = null;
             win = null;
-            console.log("Application Closing")
+            app.exit(0);
         });
 
         // Load window

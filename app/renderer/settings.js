@@ -32,6 +32,9 @@ window.onload = function() {
 
     // Themes
     document.getElementById("themes").value = mydata.theme;
+
+    //Spellchecker
+    document.getElementsByClassName("spell-checkbox")[0].checked = mydata.spellchecker.active;
 }
 
 function saveSettingsToObject() {
@@ -51,6 +54,9 @@ function saveSettingsToObject() {
 
     // Themes
     mydata.theme = document.getElementById("themes").value;
+
+    //Spellchecker
+    mydata.spellchecker.active = document.getElementsByClassName("spell-checkbox")[0].checked;
 
     saveSettingsToFile();
 }
