@@ -1,8 +1,10 @@
 electron = require('electron');
 const fs = require("fs");
 const path = require('path');
+
 var remote = require("electron").remote;
 var constants = remote.require("./constants.js");
+var abrDoc = require("./abr-document.js");
 
 var dirPath = constants.path.userConfig;
 
@@ -30,4 +32,38 @@ window.onload = function() {
 
     // Themes
     document.getElementById("themes").value = mydata.theme;
+}
+
+function saveSettingsToObject() {
+    console.log("Saving settings");
+    // Auto Preview
+    mydata.autopreview.image = document.getElementsByClassName("photo-checkbox")[0].checked;
+    mydata.autopreview.todolist = document.getElementsByClassName("todolist-checkbox")[0].checked;
+    mydata.autopreview.iframe = document.getElementsByClassName("iframe-checkbox")[0].checked;
+    mydata.autopreview.anchor =  document.getElementsByClassName("anchor-checkbox")[0].checked;
+    mydata.autopreview.math = document.getElementsByClassName("math-checkbox")[0].checked;
+
+    // Language
+    mydata.spellchecker.language = document.getElementById("language").value;
+
+    // Font Size
+    mydata.editor["font-size"] = document.getElementById("font-size").value;
+
+    // Themes
+    mydata.theme = document.getElementById("themes").value;
+
+    saveSettingsToFile();
+}
+
+function saveSettingsToFile() {
+    console.log("Save Settings to file");
+    console.log(JSON.stringify(mydata));
+    try {
+        fs.writeFileSync(dirPath, JSON.stringify(mydata), 'utf-8');
+        var window = remote.getCurrentWindow();
+        window.close();
+    }
+    catch(e) {
+        alert('ERROR: Failed to save Settings');
+    }
 }

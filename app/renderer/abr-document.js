@@ -37,7 +37,7 @@ function AbrDocument () {
     // Listener for commands sent by the menu
     this.commandsToTrigger = [];
     ipcClient.listenToCommands(function (sender, command, parameters) {
-        that.execCommand(command, parameters); 
+        that.execCommand(command, parameters);
     });
 
     // Load and set theme
@@ -90,7 +90,7 @@ function AbrDocument () {
             }
 
             // Editor font-size
-            var fontSize = config.editor["font-size"] || "16px";
+            var fontSize = config.editor["font-size"]; //|| "16px";
             that.setFontSize(fontSize);
 
             // Events concerning AbrPane
