@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Settings</title>
-        <!--Materialize-->
+        <!--Materialize & Bootstrap-->
         <link rel="stylesheet" href="../less/materialize.min.css">
         <!--Javascipt-->
         <script src="settings.js"></script>
@@ -15,7 +15,6 @@
 
     </head>
     <body>
-        <!--Heading (Could be change to fit more with the style of the main window-->
         <nav>
             <div class="nav-wrapper">
                 <a class="brand-logo center">Abricotine Settings</a>
@@ -97,14 +96,13 @@
                     <option value="60px">60px</option>
                 </select>
                 <hr>
-                <!-- Themes (FIXME - need to add more themes by code)-->
+                <!-- Themes -->
                 <h4>Themes</h4>
-                <select id="themes" class="browser-default">
-                    <option value="default">Default</option>
-                    <option value="default-dark">Default Dark</option>
+                <select id="themes" class="theme browser-default">
+                    <!-- Add Themes by Code -->
                 </select>
                 <hr>
-                <h6>You will need to restart Abricotine for the settings to take effect</h6>
+                <h6><strong>You will need to restart Abricotine for the settings to take effect</strong></h6>
                 <button class="btn waves-effect waves-light" type="submit" onclick="saveSettingsToObject()" name="action">Save Settings</button>
             </form>
         </div>

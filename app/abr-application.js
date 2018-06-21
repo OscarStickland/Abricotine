@@ -160,7 +160,7 @@ AbrApplication.prototype = {
             width:600,
             height: 800,
         });
-    
+
         SettingsWindow.loadURL(url.format({
             pathname: path.join(__dirname, 'renderer/settings.html'),
             protocol: 'file:',
@@ -168,6 +168,8 @@ AbrApplication.prototype = {
         }));
 
         SettingsWindow.setMenu(null);
+
+        SettingsWindow.toggleDevTools(); 
     }
 };
 
