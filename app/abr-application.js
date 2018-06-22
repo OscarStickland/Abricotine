@@ -168,8 +168,6 @@ AbrApplication.prototype = {
         }));
 
         SettingsWindow.setMenu(null);
-
-        SettingsWindow.toggleDevTools(); 
     }
 };
 
