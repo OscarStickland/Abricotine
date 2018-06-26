@@ -3,18 +3,17 @@
         <title>Settings</title>
         <!--Materialize & Bootstrap-->
         <link rel="stylesheet" href="../css/materialize.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <!--Javascipt-->
         <script src="settings.js"></script>
         <!--Settings CSS-->
         <link rel="stylesheet" href="../css/settings.css">
+        <!--Google Fonts--> <!--FIXME Make the fonts offline -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     </head>
     <body>
-        <nav>
-            <div class="nav-wrapper">
-                <a class="brand-logo center">Abricotine Settings</a>
-            </div>
-        </nav>
+        <h1 id="header">Abricotine Settings</h1>
         <hr>
         <div class="window-main">
             <form>
@@ -23,7 +22,7 @@
                 <select id="language" class="browser-default">
                     <option value="en_US">English</option>
                     <option value="de_DE">German</option>
-                    <option value="es_??">Spanish</option>
+                    <option value="es">Spanish</option>
                     <option value="fr_FR">French</option>
                     <option value="it_IT">Italian</option>
                     <option value="pt_BR">Portuguese</option>
@@ -70,9 +69,17 @@
                         <span>Math</span>
                     </label>
                 </p>
-
                 <hr>
                 <!--Font Size-->
+                <!-- AutoCloseBrackets -->
+                <h4>Auto Close Brackets</h4>
+                <p>
+                    <label>
+                        <input id="indeterminate-checkbox" class="AutoCloseBrackets-checkbox" type="checkbox" />
+                        <span>Auto Close Brackets</span>
+                    </label>
+                </p>
+                <hr>
                 <h4>Font Size (in Pixels)</h4>
                 <select id="font-size" class="browser-default">
                     <option value="8px">8px</option>
@@ -97,6 +104,7 @@
                     <!-- Add Themes by Code -->
                 </select>
                 <hr>
+
                 <h6><strong>You will need to restart Abricotine for the settings to take effect</strong></h6>
                 <button class="btn waves-effect waves-light" type="submit" onclick="saveSettingsToObject()" name="action">Save Settings</button>
             </form>

@@ -13,6 +13,7 @@ var data = fs.readFileSync(dirPath);
 
 //Parse to a JSON Object
 var settingsJSON = JSON.parse(data.toString());
+console.log(data.toString());
 
 //Run the required functions to start the system after the DOM loads
 window.onload = function() {
@@ -37,6 +38,9 @@ function SetupSettings() {
     GetThemes();
     document.getElementById("themes").value = settingsJSON.theme;
 
+    //AutoCloseBrackets
+    document.getElementsByClassName("AutoCloseBrackets-checkbox")[0].checked = settingsJSON["startup-commands"].autoCloseBrackets;
+
     //Spellchecker
     document.getElementsByClassName("spell-checkbox")[0].checked = settingsJSON.spellchecker.active;
 }
@@ -48,7 +52,7 @@ function saveSettingsToObject() {
     settingsJSON.autopreview.image = document.getElementsByClassName("photo-checkbox")[0].checked;
     settingsJSON.autopreview.todolist = document.getElementsByClassName("todolist-checkbox")[0].checked;
     settingsJSON.autopreview.iframe = document.getElementsByClassName("iframe-checkbox")[0].checked;
-    settingsJSON.autopreview.anchor =  document.getElementsByClassName("anchor-checkbox")[0].checked;
+    settingsJSON.autopreview.anchor = document.getElementsByClassName("anchor-checkbox")[0].checked;
     settingsJSON.autopreview.math = document.getElementsByClassName("math-checkbox")[0].checked;
 
     // Language
@@ -59,6 +63,9 @@ function saveSettingsToObject() {
 
     // Themes
     settingsJSON.theme = document.getElementById("themes").value;
+
+    //AutoCloseBrackets
+    settingsJSON["startup-commands"].autoCloseBrackets = document.getElementsByClassName("AutoCloseBrackets-checkbox").checked;
 
     //Spellchecker
     saveSettingsToFile();
@@ -73,8 +80,7 @@ function saveSettingsToFile() {
         fs.writeFileSync(dirPath, JSON.stringify(settingsJSON), 'utf-8');
         var window = remote.getCurrentWindow();
         window.close();
-    }
-    catch(e) {
+    } catch (e) {
         alert('ERROR: Failed to save Settings');
     }
 }
